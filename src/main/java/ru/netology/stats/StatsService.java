@@ -27,42 +27,42 @@ public class StatsService {
         return maxMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
 
-    public int sumSales(long[] sales)  {  // метод определения общей суммы продаж за все месяцы
-        int sum = 0;
+    public long sumSales(long[] sales) {  // метод определения общей суммы продаж за все месяцы
+        long sum = 0;
         for (int i = 0; i < sales.length; i++) {
-            sum = (int) (sum + sales[i]);
+            sum = sum + sales[i];
         }
         return sum;
     }
 
-    public int middleSumSales(long[] sales)  { // метод определения среднестатистической  суммы продаж за один месяц
-        int sum = 0;
+    public long middleSumSales(long[] sales) { // метод определения среднестатистической  суммы продаж за один месяц
+        long sum = 0;
         for (int i = 0; i < sales.length; i++) {
-            sum = (int) (sum + sales[i]);
+            sum = sum + sales[i];
         }
-        int middleSum = sum/12;
+       long middleSum = sum / 12;
         return middleSum;
     }
 
-    public int lowMiddleSumSales(long[] sales)  { // метод определения количества месяцев с продажами ниже стреднестат.
-        int quantity =0;
-        int middle = middleSumSales (sales);
+    public int lowMiddleSumSales(long[] sales) { // метод определения количества месяцев с продажами ниже стреднестат.
+        int quantity = 0;
+        long middle = middleSumSales(sales);
 
-            for (int i = 0; i < sales.length; i++) {
+        for (int i = 0; i < sales.length; i++) {
             if (sales[i] < middle) {
-                quantity = quantity +1;
+                quantity = quantity + 1;
             }
         }
-                return quantity;
+        return quantity;
     }
 
-    public int HighMiddleSumSales(long[] sales)  {  // метод определения количества месяцев с продажами выше стреднестат.
-        int quantity =0;
-        int middle = middleSumSales (sales);
+    public int HighMiddleSumSales(long[] sales) {  // метод определения количества месяцев с продажами выше стреднестат.
+        int quantity = 0;
+        long middle = middleSumSales(sales);
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > middle) {
-                quantity = quantity +1;
+                quantity = quantity + 1;
             }
         }
         return quantity;
